@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Secret Santa Surprise 🎄</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ================= SNOW ================= */
+.snow {
+  position: fixed;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowFall linear infinite;
+  z-index: 1;
+}
+
+@keyframes snowFall {
+  to { transform: translateY(110vh); }
+}
+
+/* ================= SANTA ================= */
+.santa {
+  position: fixed;
+  top: 60px;
+  left: -250px;
+  font-size: 52px;
+  animation: santaFly 16s linear infinite;
+  z-index: 2;
+}
+
+@keyframes santaFly {
+  to { transform: translateX(120vw); }
+}
+
+/* ================= CARD ================= */
+.card {
+  display: flex;
+  max-width: 900px;
+  width: 95%;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: fadeIn 0.8s ease;
+  z-index: 5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= LEFT IMAGE ================= */
+.left {
+  flex: 1;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= RIGHT CONTENT ================= */
+.right {
+  flex: 1.2;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+p {
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* ================= BUTTON ================= */
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6f61, #ff3d3d);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+button:hover {
+  transform: scale(1.06);
+}
+
+/* ================= GIFT CARD ================= */
+.gift-card {
+  margin-top: 30px;
+  padding: 22px;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  border-radius: 16px;
+  display: none;
+  animation: reveal 0.8s ease forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.code {
+  background: rgba(255,255,255,0.95);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  color: #2c7be5;
+}
+
+/* ================= SQUARE DROPS ================= */
+.square {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  animation: drop 2.5s ease forwards;
+  z-index: 999;
+}
+
+@keyframes drop {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media screen and (max-width: 768px) {
+
+  body {
+    padding: 16px 0;
+  }
+
+  .card {
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 18px;
+  }
+
+  .left {
+    height: 220px;
+  }
+
+  .left img {
+    object-position: top;
+  }
+
+  .right {
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+    font-size: 17px;
+    padding: 15px 0;
+  }
+
+  .gift-card {
+    margin-top: 22px;
+  }
+
+  .code {
+    font-size: 19px;
+  }
+
+  .santa {
+    font-size: 38px;
+    top: 40px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Santa -->
+<div class="santa">🎅🛷</div>
+
+<!-- Snow -->
+<script>
+for (let i = 0; i < 40; i++) {
+  const s = document.createElement('div');
+  s.className = 'snow';
+  s.style.left = Math.random() * 100 + 'vw';
+  s.style.width = s.style.height = 3 + Math.random() * 5 + 'px';
+  s.style.animationDuration = 4 + Math.random() * 6 + 's';
+  document.body.appendChild(s);
+}
+</script>
+
+<div class="card">
+  <div class="left">
+    <img src="assets/hr.jpg" alt="HR Photo">
+  </div>
+
+  <div class="right">
+    <h2>Happy Secret Santa, Ankita 🎄</h2>
+
+    <p>
+      Thank you for always being approachable, supportive,
+      and for creating such a positive and welcoming work environment.
+      Your guidance and encouragement truly make a difference.
+    </p>
+
+    <p>
+      This is a small token of appreciation to wish you
+      joy, warmth, and happiness this festive season ✨
+    </p>
+
+    <div class="button-wrapper">
+      <button onclick="revealGift()">🎁 Gift from Secret Santa</button>
+    </div>
+
+    <div class="gift-card" id="giftCard">
+      <strong>Amazon Gift Voucher</strong>
+      <div class="code">XXXX-XXXX-XXXX</div>
+      <div style="margin-top:8px;font-size:13px;">
+        Wishing you a joyful Christmas and a wonderful year ahead 😊
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function revealGift() {
+  const gift = document.getElementById('giftCard');
+  gift.style.display = 'block';
+  squareDrops();
+
+  if (window.innerWidth < 768) {
+    gift.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function squareDrops() {
+  for (let i = 0; i < 40; i++) {
+    const sq = document.createElement('div');
+    sq.className = 'square';
+    sq.style.left = Math.random() * 100 + 'vw';
+    sq.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+    sq.style.animationDuration = 2 + Math.random() * 1.5 + 's';
+    document.body.appendChild(sq);
+    setTimeout(() => sq.remove(), 4000);
+  }
+}
+</script>
+
+</body>
+</html>
